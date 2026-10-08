@@ -1,308 +1,308 @@
-# Proyecto de Compañía - Ingeniería de IA — Plantilla para estudiantes
+# AI Engineering Company Project — Student Template
 
 [![4Geeks Academy](https://img.shields.io/badge/4Geeks-Academy-blue)](https://4geeksacademy.com)
 [![AI Engineering](https://img.shields.io/badge/track-AI%20Engineering-green)](https://4geeksacademy.com/es/programas-de-carrera/ingenieria-ia)
 
-_Plantilla base para proyectos transversales del Programa de Carrera en Ingeniería de IA — 4Geeks Academy._
+_Base template for transversal projects in the AI Engineering Career Program — 4Geeks Academy._
 
-_These instructions are also available in [English](./README.md)._
-
----
-
-## Propósito
-
-Este repositorio es la **plantilla de inicio** para los proyectos transversales. Trabajarás con escenarios de empresas reales (Brasaland, TrackFlow, Nexova) construyendo entregables que se corresponden con los hitos del curso (Web, Programación, Backend, Telemetría, RAG, Agentes, Workflows, Tiempo real).
-
-- Crea una plantilla a partir de este repositorio.
-- Reemplaza el `CONTEXT.md` placeholder por el contexto de tu empresa asignada.
-- Usa `skills/` y los `README.md` por carpeta como guía de trabajo.
+_Estas instrucciones tambien estan disponibles en [espanol](./README.es.md)._
 
 ---
 
-## Cómo empezar
+## Purpose
 
-1. **Usa este repositorio como plantilla** y crea tu propio repo de proyecto.
-2. **Clona** tu repositorio (o ábrelo en Codespaces).
-3. **Reemplaza** `CONTEXT.md` con el contexto completo de tu empresa asignada.
-4. **Lee esta guía de carpetas** y abre el `README.md` de la carpeta en la que estés trabajando.
-5. **Empieza a implementar** en la carpeta correcta — no tires todo en la raíz.
-6. **Documenta** lo que añadas: cada app, servicio, agente o pipeline nuevo lleva subcarpeta + README.
+This repository is the **starter template** for transversal projects. You will work on real company scenarios (Brasaland, TrackFlow, Nexova), building deliverables that map to course milestones (Web, Programming, Backend, Telemetry, RAG, Agents, Workflows, Real-time).
 
----
-
-## Cómo entender este monorepo
-
-Estás construyendo **una sola empresa** a lo largo de muchos hitos y proyectos. Cada carpeta de primer nivel tiene **una responsabilidad clara** — como en un repositorio real de un equipo de ingeniería.
-
-| Capa                    | Carpetas                          | Qué vive aquí                                                               |
-| ----------------------- | --------------------------------- | --------------------------------------------------------------------------- |
-| **Contexto de empresa** | `CONTEXT.md`                      | Datos del dominio, nombres de campos y restricciones de tu empresa asignada |
-| **Cara al usuario**     | `uis/`, `services/`               | Frontends y backends con los que interactúan usuarios u operadores          |
-| **Datos**               | `data/`                           | Archivos crudos, pipelines, datasets procesados y conjuntos de evaluación   |
-| **IA**                  | `agents/`, `skills/`, `mcps/`     | Agentes, capacidades reutilizables para agentes y servidores MCP            |
-| **Automatización**      | `workflows/`                      | Flujos n8n y orquestación entre sistemas                                    |
-| **Reutilización**       | `packages/`, `shared/`            | Tipos compartidos, SDKs, esquemas, plantillas                               |
-| **Operaciones**         | `infra/`, `scripts/`, `internal/` | Docker, despliegue, scripts puntuales, CLIs internas                        |
-| **Documentación**       | `docs/`                           | Arquitectura, decisiones y convenciones de todo el repo                     |
-
-**Regla rápida:** si tiene interfaz visual → `uis/`. Si expone una API o corre en segundo plano → `services/`. Si mueve o transforma datos → `data/`. Si el trabajo lo hace un modelo de IA → `agents/` (+ `skills/` o `mcps/` según haga falta).
+- Create a template from this repository.
+- Replace the placeholder `CONTEXT.md` with your assigned company context.
+- Use `skills/` and the directory-level `README.md` files as working guidance.
 
 ---
 
-## Estado actual de la plantilla
+## How to start
 
-> 💡 Actualmente el repositorio ofrece solo una **estructura base de carpetas y documentación**. Todavía no incluye aplicaciones ejecutables ni scripts globales en la raíz.
+1. **Use this repository as a template** and create your own project repo.
+2. **Clone** your repository (or open it in Codespaces).
+3. **Replace** `CONTEXT.md` with the full context for your assigned company.
+4. **Read this folder guide** and open the `README.md` of the folder you are working in.
+5. **Start implementing** in the right folder — do not dump everything in the root.
+6. **Document** what you add: each new app, service, agent, or pipeline gets a subfolder + README.
+
+---
+
+## How to think about this monorepo
+
+You are building **one company** across many milestones and projects. Each top-level folder has a **single responsibility** — like a real engineering team repo.
+
+| Layer               | Folders                           | What lives here                                                  |
+| ------------------- | --------------------------------- | ---------------------------------------------------------------- |
+| **Company context** | `CONTEXT.md`                      | Domain facts, field names, constraints for your assigned company |
+| **User-facing**     | `uis/`, `services/`               | Frontends and backends users (or operators) interact with        |
+| **Data**            | `data/`                           | Raw files, pipelines, processed datasets, evaluation sets        |
+| **AI**              | `agents/`, `skills/`, `mcps/`     | Agents, reusable agent capabilities, MCP tool servers            |
+| **Automation**      | `workflows/`                      | n8n flows and cross-system orchestration                         |
+| **Reuse**           | `packages/`, `shared/`            | Shared types, SDKs, schemas, templates                           |
+| **Operations**      | `infra/`, `scripts/`, `internal/` | Docker, deploy configs, one-off scripts, internal CLIs           |
+| **Documentation**   | `docs/`                           | Architecture, decisions, conventions for the whole repo          |
+
+**Rule of thumb:** if it has a UI → `uis/`. If it exposes an API or runs in the background → `services/`. If it moves or transforms data → `data/`. If an AI model does the work → `agents/` (+ `skills/` or `mcps/` as needed).
+
+---
+
+## Current status of the template
+
+> 💡 This repository currently provides a **base folder structure and documentation skeleton** only. It does not include runnable apps or global scripts yet.
 >
-> - `CONTEXT.md` es un placeholder y debe sustituirse por el contexto de la empresa asignada.
-> - No existe todavía un `AGENTS.md` en la raíz.
-> - Existe metadata del paquete compartido en `packages/shared/package.json` (`@repo/shared-types`), pero aún no hay runner de workspace en raíz.
+> - `CONTEXT.md` is a placeholder and must be replaced with your assigned company context.
+> - There is no root `AGENTS.md` yet.
+> - Shared package metadata exists in `packages/shared/package.json` (`@repo/shared-types`), but no workspace runner is configured at root.
 
 ---
 
-## Guía de carpetas — qué va en cada una
+## Folder guide — what goes where
 
-Lee el `README.md` enlazado dentro de cada carpeta antes de empezar a programar ahí.
+Read the linked `README.md` inside each folder before you start coding there.
 
-### Archivos en la raíz
+### Root files
 
-| Ruta                         | Propósito                                                            | Qué haces aquí                                                                                               |
-| ---------------------------- | -------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ |
-| [`CONTEXT.md`](./CONTEXT.md) | Fuente única de verdad de tu empresa (Brasaland, TrackFlow o Nexova) | **Primer paso:** copia aquí el briefing de tu empresa para que apps, agentes y prompts usen el mismo dominio |
-| `docker-compose.yml`         | Orquestación local de todo el stack                                  | Mantener en la raíz del repo — conecta `services/`, bases de datos y otros contenedores desde un solo lugar  |
-| `README.md` / `README.es.md` | Esta guía                                                            | Orientación — estás aquí                                                                                     |
+| Path                         | Purpose                                                                   | What you do here                                                                                              |
+| ---------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| [`CONTEXT.md`](./CONTEXT.md) | Single source of truth for your company (Brasaland, TrackFlow, or Nexova) | **First step:** copy your assigned company briefing here so every app, agent, and prompt uses the same domain |
+| `docker-compose.yml`         | Local dev orchestration for the whole stack                               | Keep at repo root — wires `services/`, databases, and other containers from one place                         |
+| `README.md` / `README.es.md` | This guide                                                                | Orientation — you are here                                                                                    |
 
-### `uis/` — interfaces de usuario
+### `uis/` — user interfaces
 
-**Propósito:** Todas las aplicaciones frontend — todo lo que un humano ve y en lo que hace clic.
+**Purpose:** All frontend applications — anything a human sees and clicks.
 
-**Pon aquí:**
+**Put here:**
 
-- Sitio web público (`website/`)
-- Admin interno / backoffice (`backoffice/`)
-- Portales de clientes, apps de fidelización, herramientas Streamlit/Gradio, dashboards con UI
+- Public website (`website/`)
+- Internal admin / backoffice (`backoffice/`)
+- Customer portals, loyalty apps, Streamlit/Gradio tools, dashboards with a UI
 
-**Ejemplos:** landing corporativa, backoffice de operaciones, portal de fidelización, UI de dashboard de telemetría
+**Examples:** corporate landing page, operations backoffice, loyalty portal, telemetry dashboard UI
 
-→ Ver [`uis/README.md`](./uis/README.md)
+→ See [`uis/README.md`](./uis/README.md)
 
-### `services/` — API centralizada de la empresa (FastAPI)
+### `services/` — centralized company API (FastAPI)
 
-**Propósito:** Un **backend FastAPI centralizado** para toda la empresa — un solo punto de entrada que reduce la complejidad a medida que crece el proyecto.
+**Purpose:** One **centralized FastAPI backend** for the whole company — a single entry point that keeps complexity low as the project grows.
 
-**Pon aquí:**
+**Put here:**
 
-- Una app FastAPI principal (p. ej. `api/`) con routers/módulos por dominio (ubicaciones, menús, ventas, telemetría, etc.)
-- Workers en background solo cuando de verdad necesiten correr separados de la API
+- One main FastAPI app (e.g. `api/`) with routers/modules per domain (locations, menus, sales, telemetry, etc.)
+- Background workers only when they truly need to run separately from the API
 
-**Recomendación:** evita dividir en muchos microservicios al inicio. Añade endpoints a la misma app FastAPI; extrae un worker solo cuando sea necesario.
+**Recommendation:** avoid splitting into many microservices early. Add endpoints to the same FastAPI app; extract a worker only when necessary.
 
-**Ejemplos:** `/locations`, `/menus`, `/sales/reports`, webhooks, jobs programados
+**Examples:** `/locations`, `/menus`, `/sales/reports`, webhook handlers, scheduled jobs
 
-→ Ver [`services/README.md`](./services/README.md)
+→ See [`services/README.md`](./services/README.md)
 
-### `data/` — datasets, pipelines y evaluación
+### `data/` — datasets, pipelines, and evaluation
 
-**Propósito:** Todo lo relacionado con datos, desde archivos crudos hasta tablas listas para producción.
+**Purpose:** Everything data-related, from raw files to production-ready tables.
 
-| Subcarpeta                                      | Propósito                     | Qué haces aquí                                                                  |
-| ----------------------------------------------- | ----------------------------- | ------------------------------------------------------------------------------- |
-| [`data/raw/`](./data/raw/README.md)             | Datos fuente sin tocar        | Guardar dumps, exports, CSV/JSON de ejemplo — documentar origen y reglas de PII |
-| [`data/pipelines/`](./data/pipelines/README.md) | Jobs ETL/ELT                  | Escribir scripts de ingesta, limpieza y transformación                          |
-| [`data/process/`](./data/process/README.md)     | Salidas limpias / intermedias | Guardar artefactos de pipelines (features, agregados, tablas limpias)           |
-| [`data/eval/`](./data/eval/README.md)           | Medición de calidad           | Golden sets, datasets de evaluación RAG/agentes, métricas de experimentos       |
+| Subfolder                                       | Purpose                      | What you do here                                                          |
+| ----------------------------------------------- | ---------------------------- | ------------------------------------------------------------------------- |
+| [`data/raw/`](./data/raw/README.md)             | Untouched source data        | Store dumps, exports, sample CSVs/JSON — document origin and PII rules    |
+| [`data/pipelines/`](./data/pipelines/README.md) | ETL/ELT jobs                 | Write ingestion, cleaning, and transformation scripts                     |
+| [`data/process/`](./data/process/README.md)     | Clean / intermediate outputs | Save artifacts produced by pipelines (features, aggregates, clean tables) |
+| [`data/eval/`](./data/eval/README.md)           | Quality measurement          | Golden sets, RAG/agent eval datasets, experiment metrics                  |
 
-**Flujo:** `raw` → `pipelines` → `process` → consumido por `services/`, `uis/` o `agents/`. Usa `eval` para demostrar calidad.
+**Flow:** `raw` → `pipelines` → `process` → consumed by `services/`, `uis/`, or `agents/`. Use `eval` to prove quality.
 
-### `agents/` — agentes de IA
+### `agents/` — AI agents
 
-**Propósito:** Asistentes de IA autónomos o semi-autónomos para la empresa.
+**Purpose:** Autonomous or semi-autonomous AI assistants for the company.
 
-**Pon aquí:**
+**Put here:**
 
-- Una subcarpeta por agente (p. ej. `support-agent/`, `onboarding-agent/`)
-- Config del agente, prompts, herramientas, tests
-- Empieza desde [`agents/_template/`](./agents/_template/README.md) al crear un agente nuevo
+- One subfolder per agent (e.g. `support-agent/`, `onboarding-agent/`)
+- Agent config, prompts, tools wiring, tests
+- Start from [`agents/_template/`](./agents/_template/README.md) when creating a new agent
 
-**Ejemplos:** bot de soporte al cliente, copiloto de onboarding, asistente de formación
+**Examples:** customer support bot, employee onboarding copilot, training assistant
 
-→ Ver [`agents/README.md`](./agents/README.md)
+→ See [`agents/README.md`](./agents/README.md)
 
-### `skills/` — capacidades reutilizables para agentes
+### `skills/` — reusable agent capabilities
 
-**Propósito:** Instrucciones empaquetadas + scripts que agentes (o tú en Cursor) reutilizan en todo el repo.
+**Purpose:** Packaged instructions + scripts that agents (or you in Cursor) reuse across the repo.
 
-**Pon aquí:**
+**Put here:**
 
-- Skills de análisis de datos, code review, scraping, investigación, etc.
-- Cada skill = carpeta con `SKILL.md`, scripts y recursos opcionales
+- Skills for data analysis, code review, scraping, research, etc.
+- Each skill = a folder with `SKILL.md`, optional scripts and resources
 
-**Ejemplo incluido:** `skills/data-analysis/` (script de limpieza pandas + referencia de métricas)
+**Example included:** `skills/data-analysis/` (pandas cleaning script + metrics reference)
 
-→ Ver [`skills/README.md`](./skills/README.md)
+→ See [`skills/README.md`](./skills/README.md)
 
-### `mcps/` — servidores Model Context Protocol
+### `mcps/` — Model Context Protocol servers
 
-**Propósito:** Conectar modelos de IA con tus sistemas — bases de datos, APIs, GitHub, herramientas propias.
+**Purpose:** Bridge AI models to your systems — databases, APIs, GitHub, custom tools.
 
-**Pon aquí:**
+**Put here:**
 
-- Una subcarpeta por servidor MCP (p. ej. `database-mcp/`, `github-mcp/`)
-- Definiciones de tools, resources y config del servidor
+- One subfolder per MCP server (e.g. `database-mcp/`, `github-mcp/`)
+- Tool definitions, resources, and server config
 
-**Cuándo usarlo:** cuando un agente necesita acceso en vivo a datos o acciones que el código solo no puede dar
+**When to use:** when an agent needs live access to data or actions your codebase alone cannot provide
 
-→ Ver [`mcps/README.md`](./mcps/README.md)
+→ See [`mcps/README.md`](./mcps/README.md)
 
-### `workflows/` — automatización y orquestación
+### `workflows/` — automation and orchestration
 
-**Propósito:** Conectar sistemas sin escribir apps completas — jobs programados, webhooks, notificaciones.
+**Purpose:** Connect systems without writing full apps — scheduled jobs, webhooks, notifications.
 
-**Pon aquí:**
+**Put here:**
 
-- Exports de workflows n8n, configs de Make/Zapier u orquestación documentada
-- Flujos que enlazan `services/`, `data/pipelines/` y `agents/`
+- n8n workflow exports, Make/Zapier configs, or orchestration docs
+- Flows that link `services/`, `data/pipelines/`, and `agents/`
 
-**Ejemplos:** nuevo pedido → alerta Slack, trigger ETL nocturno, lead → sync CRM
+**Examples:** new-order → Slack alert, nightly ETL trigger, lead → CRM sync
 
-→ Ver [`workflows/README.md`](./workflows/README.md)
+→ See [`workflows/README.md`](./workflows/README.md)
 
-### `packages/` — librerías compartidas
+### `packages/` — shared libraries
 
-**Propósito:** Código versionable reutilizado por varias apps, agentes o pipelines.
+**Purpose:** Versionable code reused by multiple apps, agents, or pipelines.
 
-**Pon aquí:**
+**Put here:**
 
-- Tipos TypeScript compartidos (`packages/shared/` → `@repo/shared-types`)
-- Librerías de componentes UI, clientes API, SDKs de analytics
+- Shared TypeScript types (`packages/shared/` → `@repo/shared-types`)
+- UI component libraries, API clients, analytics SDKs
 
-**Regla:** si `uis/` y `services/` comparten la misma interfaz → extráela aquí
+**Rule:** if `uis/` and `services/` both need the same interface → extract it here
 
-→ Ver [`packages/README.md`](./packages/README.md)
+→ See [`packages/README.md`](./packages/README.md)
 
-### `shared/` — recursos sueltos compartidos
+### `shared/` — loose shared assets
 
-**Propósito:** Recursos que no son un paquete completo — esquemas, plantillas, assets estáticos, docs cortas.
+**Purpose:** Resources that are not a full package — schemas, templates, static assets, short docs.
 
-**Pon aquí:**
+**Put here:**
 
-- Esquemas JSON, plantillas de email, specs OpenAPI, design tokens
-- Cualquier cosa reutilizada pero demasiado pequeña o no-código para `packages/`
+- JSON schemas, email templates, OpenAPI specs, design tokens
+- Anything reused but too small or non-code for `packages/`
 
-→ Ver [`shared/README.md`](./shared/README.md)
+→ See [`shared/README.md`](./shared/README.md)
 
-### `docs/` — documentación transversal
+### `docs/` — cross-cutting documentation
 
-**Propósito:** Arquitectura y decisiones que abarcan todo el proyecto de la empresa.
+**Purpose:** Architecture and decisions that span the whole company project.
 
-**Pon aquí:**
+**Put here:**
 
-- Diagramas de arquitectura, ADRs, guías de seguridad/observabilidad
-- Convenciones no atadas a una sola app o agente
+- System architecture diagrams, ADRs, security/observability guides
+- Conventions not tied to one app or agent
 
-→ Ver [`docs/README.md`](./docs/README.md)
+→ See [`docs/README.md`](./docs/README.md)
 
-### `infra/` — infraestructura y despliegue
+### `infra/` — infrastructure and deployment
 
-**Propósito:** Cómo corre el proyecto en Docker, cloud o CI.
+**Purpose:** How the company project runs in Docker, cloud, or CI.
 
-**Pon aquí:**
+**Put here:**
 
-- Dockerfiles, Terraform, manifiestos K8s, configs Nginx, pipelines CI/CD
+- Dockerfiles, Terraform, K8s manifests, Nginx configs, CI/CD pipelines
 
-**Mantener en la raíz del repo:** `docker-compose.yml` — orquesta el entorno local de `services/`, bases de datos y otros contenedores desde un solo lugar.
+**Keep at repo root:** `docker-compose.yml` — orchestrates local dev for `services/`, databases, and other containers from one place.
 
-→ Ver [`infra/README.md`](./infra/README.md)
+→ See [`infra/README.md`](./infra/README.md)
 
-### `scripts/` — scripts de ayuda
+### `scripts/` — helper scripts
 
-**Propósito:** Automatización pequeña y repetible — no apps completas.
+**Purpose:** Small, repeatable automation — not full apps.
 
-**Pon aquí:**
+**Put here:**
 
-- Scripts de setup, generadores de seed data, wrappers de lint, migraciones puntuales
-- Documenta cada script: qué hace, argumentos y cómo ejecutarlo
+- Setup scripts, seed data generators, lint wrappers, one-off migrations
+- Document each script: what it does, args, and how to run it
 
-**Diferencia con `internal/`:** los scripts suelen ser archivos sueltos; las tools de `internal/` son proyectos estructurados con deps y tests propios.
+**Difference from `internal/`:** scripts are usually single files; `internal/` tools are structured projects with their own deps and tests.
 
-→ Ver [`scripts/README.md`](./scripts/README.md)
+→ See [`scripts/README.md`](./scripts/README.md)
 
-### `internal/` — herramientas internas para desarrolladores
+### `internal/` — internal developer tools
 
-**Propósito:** Utilidades robustas para el equipo de ingeniería.
+**Purpose:** Robust utilities for the engineering team.
 
-**Pon aquí:**
+**Put here:**
 
-- CLIs, herramientas de migración empaquetadas, evaluadores de prompts
-- Tools con su propio `package.json`, tests y pasos de instalación
+- CLIs, packaged migration tools, prompt evaluators
+- Tools with their own `package.json`, tests, and install steps
 
-→ Ver [`internal/README.md`](./internal/README.md)
+→ See [`internal/README.md`](./internal/README.md)
 
 ---
 
-## ¿Dónde pongo esto?
+## Where should I put this?
 
-Guía rápida de decisión:
+Quick decision guide:
 
 ```text
-¿Tiene botones y pantallas?                → uis/
-¿Corre en servidor / API / cola?           → services/
-¿Es dato crudo o transformado?             → data/raw/ o data/process/
-¿Mueve datos entre sistemas?               → data/pipelines/
-¿Mides calidad de IA/pipelines?            → data/eval/
-¿Es un asistente de IA con un objetivo?    → agents/
-¿Es una capacidad/instrucción reutilizable?→ skills/
-¿La IA necesita llamar tools/APIs externas?→ mcps/
-¿Es n8n / automatización programada?       → workflows/
-¿2+ carpetas importan el mismo código?     → packages/
-¿Es esquema/plantilla/asset, no librería?  → shared/
-¿Es arquitectura o docs de todo el equipo? → docs/
-¿Es docker-compose para dev local?         → raíz del repo
-¿Es Docker / deploy / config cloud?        → infra/
-¿Es un script puntual?                     → scripts/
-¿Es una CLI con su propio paquete?         → internal/
+Does it have buttons and screens?          → uis/
+Does it run on a server / API / queue?     → services/
+Is it raw or transformed data?             → data/raw/ or data/process/
+Does it move data between systems?         → data/pipelines/
+Do you measure AI/pipeline quality?        → data/eval/
+Is it an AI assistant with a goal?         → agents/
+Is it a reusable AI capability/instruction?→ skills/
+Does AI need to call external tools/APIs?  → mcps/
+Is it n8n / scheduled automation?          → workflows/
+Will 2+ folders import the same code?      → packages/
+Is it a schema/template/asset, not a lib?  → shared/
+Is it architecture or team-wide docs?      → docs/
+Is it docker-compose for local dev?        → repo root
+Is it Docker / deploy / cloud config?      → infra/
+Is it a one-off script?                    → scripts/
+Is it a CLI tool with its own package?     → internal/
 ```
 
 ---
 
-## Estructura del repositorio (árbol)
+## Repository structure (tree)
 
 ```text
 ai-engineering-company-project-monorepo/
-├── README.md / README.es.md   # Esta guía
-├── CONTEXT.md                 # ← Reemplazar con el briefing de tu empresa
-├── docker-compose.yml         # ← Orquestación local (raíz del repo)
+├── README.md / README.es.md   # This guide
+├── CONTEXT.md                 # ← Replace with your company briefing
+├── docker-compose.yml         # ← Local dev orchestration (repo root)
 ├── uis/                       # Frontends (website, backoffice, dashboards)
-├── services/                  # API FastAPI centralizada de la empresa
+├── services/                  # Centralized FastAPI company API
 ├── data/
-│   ├── raw/                   # Datasets fuente
-│   ├── pipelines/             # Jobs ETL/ELT
-│   ├── process/               # Salidas limpias / intermedias
-│   └── eval/                  # Conjuntos de evaluación y métricas
-├── agents/                    # Agentes de IA (+ plantilla _template/)
-├── skills/                    # Skills reutilizables para agentes
-├── mcps/                      # Servidores MCP para acceso a tools
-├── workflows/                 # Flujos n8n y automatizaciones
-├── packages/                  # Librerías compartidas (@repo/shared-types, …)
-├── shared/                    # Esquemas, plantillas, assets sueltos
-├── docs/                      # Arquitectura y docs transversales
-├── infra/                     # Docker, Terraform, despliegue
-├── scripts/                   # Scripts de ayuda
-└── internal/                  # CLIs y herramientas internas de desarrollo
+│   ├── raw/                   # Source datasets
+│   ├── pipelines/             # ETL/ELT jobs
+│   ├── process/               # Clean / intermediate outputs
+│   └── eval/                  # Evaluation sets and metrics
+├── agents/                    # AI agents (+ _template/ starter)
+├── skills/                    # Reusable agent skills
+├── mcps/                      # MCP servers for tool access
+├── workflows/                 # n8n and automation flows
+├── packages/                  # Shared libraries (@repo/shared-types, …)
+├── shared/                    # Schemas, templates, loose assets
+├── docs/                      # Architecture and cross-cutting docs
+├── infra/                     # Docker, Terraform, deployment
+├── scripts/                   # Helper scripts
+└── internal/                  # Internal CLIs and dev tools
 ```
 
 ---
 
-## Enlaces
+## Links
 
-- [4Geeks Academy — Ingeniería de IA](https://4geeksacademy.com/es/programas-de-carrera/ingenieria-ia)
-- [Cómo empezar un proyecto de código](https://4geeks.com/lesson/how-to-start-a-project)
+- [4Geeks Academy — AI Engineering](https://4geeksacademy.com/es/programas-de-carrera/ingenieria-ia)
+- [How to start a coding project](https://4geeks.com/lesson/how-to-start-a-project)
 
 ---
 
-## Contribuidores
+## Contributors
 
-Esta plantilla fue creada como parte del Programa de Carrera de Ingeniería de IA de 4Geeks Academy por [@marcogonzalo](https://www.linkedin.com/in/marcogonzalo) y [@alezanchezr](https://x.com/alesanchezr), junto a otros muchos colaboradores. Descubre más sobre nuestro [Curso de Ingeniería de IA](https://4geeksacademy.com/es/programas-de-carrera/ingenieria-ia) y sobre [otros cursos](https://4geeksacademy.com/es/comparar-programas).
+This template was built as part of the 4Geeks Academy AI Engineering Career Program by [@marcogonzalo](https://www.linkedin.com/in/marcogonzalo) and [@alesanchezr](https://x.com/alesanchezr) and many other contributors. Find out more about our [AI Engineering Course](https://4geeksacademy.com/en/career-programs/ai-engineering), and [other courses](https://4geeksacademy.com/en/program-comparison).
 
-Puedes encontrar otras plantillas y recursos similares en la [página de GitHub de 4Geeks Academy](https://github.com/4geeksacademy).
+You can find other templates and resources like this at the [4Geeks Academy GitHub page](https://github.com/4geeksacademy).
 
-_Esta plantilla la mantiene 4Geeks Academy para el track de Ingeniería de IA. Uso exclusivo del programa._
+_This template is maintained by 4Geeks Academy for the AI Engineering track. For exclusive use in the programme._
